@@ -5,6 +5,7 @@ public class Person {
     public Person(int age, String name) {
         this.age = age;
         this.name = name;
+        introduce(); //!!! 如果有子类的话会调用子类的 introduce 方法，在构造函数中不应出现被子类重写的函数
     }
 
     public int age;
@@ -43,4 +44,22 @@ class Student extends Person{
         return this;
     }
 
+    public Class<? extends Person> getParentClass(){
+        return super.getClass();
+    }
+
+}
+
+class Teacher extends Person{
+    public final String position;
+
+    public Teacher(int age, String name,String position){
+        super(age,name);
+        this.position = position;
+    }
+}
+
+abstract class AbsClass{
+    public static int a = 10;
+    abstract void show();
 }
