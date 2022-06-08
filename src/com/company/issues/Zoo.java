@@ -10,8 +10,23 @@ public class Zoo implements Cloneable{
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone(); // 浅克隆
+//        return super.clone(); // 浅克隆
+
+
+        // 以下是深克隆
+        Zoo zoo = null;
+        try{
+            zoo = (Zoo)super.clone(); // 不能是 this.clone() !!
+        }catch (CloneNotSupportedException e){
+            zoo = new Zoo(this.id,this.animals.length);
+        }
+
+        zoo.animals = Arrays.copyOf(this.animals,this.animals.length); // 方法1：手动复制
+//        zoo.animals = this.animals.clone(); // 方法2：调用 数组的 clone 方法
+
+        return zoo;
     }
+
 
     @Override
     public String toString() {

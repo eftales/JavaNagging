@@ -11,7 +11,7 @@ public class CloneIssues implements Issues {
         System.out.println(zoo1);
         System.out.println(zoo2);
 
-        zoo1.id = 3;
+        zoo1.id = 3; // 深/浅克隆均不会在这一步出错
         System.out.println(zoo1);
         System.out.println(zoo2);
 
