@@ -1,6 +1,8 @@
-package com.company;
+package com.company.issues;
 
-public class RTIssues {
+import com.company.Issues;
+
+public class RTIssues  implements Issues {
     public void show(){
         Runtime rt = Runtime.getRuntime();
         try {

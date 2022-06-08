@@ -1,10 +1,12 @@
-package com.company;
+package com.company.issues;
+
+import com.company.Issues;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class CollectionIssues {
+public class CollectionIssues  implements Issues {
     public void show(){
         List<String> li = new ArrayList<>();
         for(int i=0;i<10;++i){
@@ -29,15 +31,15 @@ public class CollectionIssues {
         // 类型擦除
         List<String>[] lss = new ArrayList[10];
 
-        TIssues tIssues = new TIssues<String>(10);
-        List<String>[] data = tIssues.createArray(10);
+        Ttest ttest = new Ttest<String>(10);
+        List<String>[] data = ttest.createArray(10);
 
     }
 }
 
-class TIssues <T>{
+class Ttest <T>{
     private List<T>[] data;
-    public TIssues(int size){
+    public Ttest(int size){
         data = new ArrayList[size];
     }
 
